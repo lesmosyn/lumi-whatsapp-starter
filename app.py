@@ -6,4 +6,10 @@ app = Flask(__name__)
 def whatsapp():
     incoming_msg = request.values.get('Body', '').lower()
     reply = f"Lumi received: {incoming_msg}"
-    return Response(reply, status=200)
+    
+    response = f"""<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Message>{reply}</Message>
+</Response>"""
+
+    return Response(response, mimetype="application/xml")
