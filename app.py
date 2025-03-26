@@ -6,5 +6,6 @@ app = Flask(__name__)
 def whatsapp():
     incoming_msg = request.values.get("Body", "").lower()
     reply = f"Lumi received: {incoming_msg}"
-    return Response(reply, status=200)
+    return Response(reply, status=200, mimetype="text/plain")
+
 
