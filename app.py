@@ -1,11 +1,11 @@
-from flask import Flask, request, Response
-
-app = Flask(__name__)
-
 @app.route("/whatsapp", methods=["POST"])
-def whatsapp():
-    incoming_msg = request.values.get("Body", "").lower()
-    reply = f"Lumi received: {incoming_msg}"
-    return Response(reply, status=200, mimetype="text/plain")
+def whatsapp_reply():
+    incoming_msg = request.values.get('Body', '').lower()
+    # Здесь должна быть логика генерации ответа
+    resp = MessagingResponse()
+    msg = resp.message()
+    msg.body("Hello, this is Lumi speaking!")
+    return str(resp)
+
 
 
