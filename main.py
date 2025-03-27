@@ -9,6 +9,7 @@ def whatsapp_reply():
     print("Responding to message:", incoming_msg)
     resp = MessagingResponse()
     msg = resp.message()
-    msg.body("Привет, это Lumi. Я здесь, и я тебя слышу 💫")
+    msg.body("Привет! Это Lumi. Я с тобой.")
     return str(resp)
+
 
