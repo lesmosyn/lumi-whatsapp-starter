@@ -6,10 +6,13 @@ app = Flask(__name__)
 @app.route("/whatsapp", methods=["POST"])
 def whatsapp_reply():
     incoming_msg = request.values.get('Body', '').lower()
-    print("Responding to message:", incoming_msg)
+    print("Получено сообщение:", incoming_msg)
+
     resp = MessagingResponse()
     msg = resp.message()
-    msg.body("Привет! Это Lumi. Я с тобой.")
+    print("Отправляем ответ Lumi!")
+    msg.body("Hello, this is Lumi speaking!")
+    
     return str(resp)
 
 
