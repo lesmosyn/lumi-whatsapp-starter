@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, Response
 from twilio.twiml.messaging_response import MessagingResponse
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ def whatsapp_reply():
     msg = resp.message()
     print("Отправляем ответ Lumi!")
     msg.body("Hello, this is Lumi speaking!")
-    
-    return str(resp)
+
+    return Response(str(resp), mimetype="application/xml")
 
 
